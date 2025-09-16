@@ -1,20 +1,16 @@
 #opcion 1. Cargar titulos y ejemplares
 
 def cargar_titulos_y_ejemplares(lista_1: list, lista_2: list) -> list:
-    
-    for i in range(len(lista_1)):
-
-        agregar_libro = input("Desea agregar un lbro? Si/No: ")
-
-        if agregar_libro == "Si":
-        
+    seguir_agregando = "Si"
+    while seguir_agregando == "Si":
+        for i in range(len(lista_1)):
             titulo = input("Ingrese título del libro: ")
-            ejemplares = int(input("Ingrese copias disponibles: "))
+            ejemplar = int(input("Ingrese copias disponibles: "))
 
             lista_1[i] = titulo
-            lista_2[i] = ejemplares
-        else:
-            break
+            lista_2[i] = ejemplar
+
+            seguir_agregando = input("Desea seguir ingresando libros? Si/No: ")
 
     return lista_1, lista_2
 
@@ -33,16 +29,13 @@ def consultar_disponibilidad(lista_1: list, lista_2: list)->None:
         if lista_1[i] == titulo:
             print(f"{titulo} tiene {lista_2[i]} copias")
             break
-        else:
-            print("Ese libro no se encuentra disponible.")
-            break
 
 #opcion 4. Listar titulos agotados
 
 def mostrar_titulos_agotados(lista_1: list, lista_2: list)->None:
     for i in range(len(lista_1)):
         if lista_2[i] == 0:
-            if lista_1[i] == " " :
+            if lista_1[i] == "" :
                 continue
             else:
                 print(f"{lista_1[i]} está agotado.")

@@ -4,6 +4,9 @@ from funciones import *
 titulos = [" "] * 20
 ejemplares = [0] * 20 
 
+print(titulos)
+print(ejemplares)
+
 menu = True
 
 while menu == True:
