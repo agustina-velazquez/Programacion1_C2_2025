@@ -30,12 +30,14 @@ def consultar_disponibilidad(lista_1: list, lista_2: list)->None:
     titulo = input("¿Qué título desea buscar?: ")
 
     for i in range(len(lista_1)):
-        if lista_1[i] == titulo:
+        if lista_1[i] == " ":
+            print("Ese lbro no se encuentra disponible.")
+            break
+        elif lista_1[i] == titulo:
             print(f"{titulo} tiene {lista_2[i]} copias")
             break
-        else:
-            print("Ese libro no se encuentra disponible.")
-            break
+
+       
 
 #opcion 4. Listar titulos agotados
 
@@ -75,5 +77,7 @@ def actualizar_ejemplares(lista_1:list, lista_2:list)->list:
             ejemplares = int(input("Nuevo número de ejemplares: "))
             lista_2[i] = ejemplares
             break
+        else:
+            continue
     return lista_2
         
